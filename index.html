@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buat Ucapan Ulang Tahun</title>
+  <style>
+    body {
+      background: #ffeaa7;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      font-size: 1em;
+      border: 2px solid #fd79a8;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #fd79a8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #link {
+      margin-top: 20px;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎂 Buat Ucapan Ulang Tahun 🎉</h1>
+  <p>Masukkan nama penerima:</p>
+  <input type="text" id="namaInput" placeholder="Contoh: Rina" />
+  <button onclick="buatLink()">Buat Link</button>
+
+  <p id="link"></p>
+
+  <script>
+    function buatLink() {
+      const nama = document.getElementById('namaInput').value.trim();
+      if (nama === "") {
+        alert("Silakan masukkan nama!");
+        return;
+      }
+      const encoded = encodeURIComponent(nama);
+      const url = `${window.location.origin}${window.location.pathname.replace("index.html", "")}card.html?nama=${encoded}`;
+      document.getElementById('link').innerHTML = `Link ucapan: <br><a href="${url}" target="_blank">${url}</a>`;
+    }
+  </script>
+</body>
+</html>

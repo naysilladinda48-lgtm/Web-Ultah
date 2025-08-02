@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selamat Ulang Tahun</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3em;
+    }
+    p {
+      font-size: 1.5em;
+    }
+    .nama {
+      font-weight: bold;
+      color: #fff200;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Selamat Ulang Tahun 🎉</h1>
+  <p>Semoga panjang umur dan bahagia selalu,<br><span class="nama">Sahabat!</span></p>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const nama = urlParams.get('nama');
+    if (nama) {
+      document.querySelector('.nama').textContent = decodeURIComponent(nama) + "!";
+    }
+  </script>
+</body>
+</html>
